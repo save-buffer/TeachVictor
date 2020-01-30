@@ -1,0 +1,17 @@
+
+*.db
+*.lastbuildstate
+*.tlog
+*.idb
+*.sln
+*.pdb
+*.ilk
+*.log
+*.exe
+*.obj
+*.ipch
+Problem 2/.vs/Problem 2/v16/.suo
+Problem 1/.vs/Problem 1/v16/.suo
+*.vcxproj
+*.filters
+*.user

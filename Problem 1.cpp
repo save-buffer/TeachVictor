@@ -5,17 +5,6 @@
 
 using namespace std;
 
-bool containdigit(string s) {
-	bool y = false;
-	for (int i = 0; i < s.size(); i++) {
-		if (s[i] >= '0' && s[i] <= '9') {
-			y = true;
-			break;
-		}
-	}
-	return y;
-}
-
 string lower(string s) {
 	for (int i = 0; i < s.size(); i++) {
 		s[i] = tolower(s[i]);
@@ -60,7 +49,7 @@ int main()
 
 	for_each(a.begin(), a.end(), [](string& i) {cout << i.back() << "\n"; });
 
-	cout << count_if(a.begin(), a.end(), containdigit) << "\n";
+	cout << count_if(a.begin(), a.end(), [](string& i) {return count_if(i.begin(), i.end(), isdigit); }) << "\n";
 
 	transform(a.begin(), a.end(), a.begin(), lower);
 	

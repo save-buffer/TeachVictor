@@ -30,7 +30,7 @@ int main()
 
 	cout << count_if(a.begin(), a.end(), [](string i) {return count_if(i.begin(), i.end(), isdigit); }) << "\n";
 
-	transform(a.begin(), a.end(), a.begin(), [](string i) {transform(i.begin(), i.end(), i.begin(), tolower); });
+	transform(a.begin(), a.end(), a.begin(), [](string i) {transform(i.begin(), i.end(), i.begin(), tolower); return 0; });
 
 	vector<pair<int, int>> pa(a.size());
 	int i = 0;

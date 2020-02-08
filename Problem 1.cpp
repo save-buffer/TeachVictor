@@ -16,25 +16,25 @@ int main()
 	} while (p != "");
 	a.pop_back();
 
-	if (all_of(a.begin(), a.end(), [](string& i) {return (i.size() >= 4); })) {
+	if (all_of(a.begin(), a.end(), [](string i) {return (i.size() >= 4); })) {
 		cout << "ALL\n";
 	}
-	else if (any_of(a.begin(), a.end(), [](string& i) {return (i.size() >= 4); })) {
+	else if (any_of(a.begin(), a.end(), [](string i) {return (i.size() >= 4); })) {
 		cout << "SOME\n";
 	}
-	else if (none_of(a.begin(), a.end(), [](string& i) {return (i.size() >= 4); })) {
+	else if (none_of(a.begin(), a.end(), [](string i) {return (i.size() >= 4); })) {
 		cout << "NONE\n";
 	}
 
-	for_each(a.begin(), a.end(), [](string& i) {cout << i.back() << "\n"; });
+	for_each(a.begin(), a.end(), [](string i) {cout << i.back() << "\n"; });
 
-	cout << count_if(a.begin(), a.end(), [](string& i) {return count_if(i.begin(), i.end(), isdigit); }) << "\n";
+	cout << count_if(a.begin(), a.end(), [](string i) {return count_if(i.begin(), i.end(), isdigit); }) << "\n";
 
-	transform(a.begin(), a.end(), a.begin(), [](string& i) {transform(i.begin(), i.end(), i.begin(), tolower); return NULL; });
+	transform(a.begin(), a.end(), a.begin(), [](string i) {transform(i.begin(), i.end(), i.begin(), tolower); });
 
 	vector<pair<int, int>> pa(a.size());
 	int i = 0;
-	transform(a.begin(), a.end(), pa.begin(), [&i](string& p) {pair<int, int> s; s.first = accumulate(p.begin(), p.end(), 0);  s.second = i; i++; return s; });
+	transform(a.begin(), a.end(), pa.begin(), [&i](string p) {pair<int, int> s; s.first = accumulate(p.begin(), p.end(), 0);  s.second = i; i++; return s; });
 
 	sort(pa.begin(), pa.end(), [&](pair<int, int> one, pair<int, int> two) {return one.first < two.first; });
 	const auto val = make_pair(75, 0);
